@@ -5,8 +5,15 @@ We’re assigning the variable map to the JavaScript class “L,” an acronym f
 The mapid will reference the id tag in our <div> element on the index.html file.
 The setView() method sets the view of the map with a geographical center, where the first coordinate is latitude (40.7) and the second is longitude (-94.5). We set the zoom level of “4” on a scale 0–18.
 */
-let map = L.map('mapid').setView([40.7, -94.5], 4);
+let map = L.map('mapid').setView([34.0522, -118.2437], 14);
 
+//let marker = L.marker([34.0522, -118.2437]).addTo(map);
+
+L.circleMarker([34.0522, -118.2437], {
+	radius: 300,
+	color:'black',
+	fillColor:'#ffffa1'
+ }).addTo(map);
 /*
 Let’s break down what's happening in this code block:
 
