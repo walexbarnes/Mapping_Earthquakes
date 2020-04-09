@@ -1,19 +1,30 @@
 console.log('working')
 // Get data from cities.js
-let cityData = cities;
-/*
+let airportData = "https://raw.githubusercontent.com/<GitHub_name>/Mapping_Earthquakes/master/majorAirports.json";
+console.log('incoming')
+// Grabbing our GeoJSON data.
+d3.json(airportData).then(function(data) {
+    console.log(data);
+  // Creating a GeoJSON layer with the retrieved data.
+  L.geoJson(data).addTo(map);
+});/*
 We’re assigning the variable map to the JavaScript class “L,” an acronym for Leaflet, and we’ll instantiate the map object with the given string 'mapid'.
 The mapid will reference the id tag in our <div> element on the index.html file.
 The setView() method sets the view of the map with a geographical center, where the first coordinate is latitude (40.7) and the second is longitude (-94.5). We set the zoom level of “4” on a scale 0–18.
 */
-let map = L.map('mapid').setView([40.7, -94.5], 4);
-
-
-// Coordinates for each point to be used in the line.
-let line = [
-	[33.9416, -118.4085],
-	[37.6213, -122.3790]
-  ];
+// Create the map object with center and zoom level.
+let map = L.map('mapid').setView([30, 30], 2);
+/*
+// Loop through the cities array and create one marker for each city.
+cityData.forEach(function(city) {
+	console.log(city)
+	L.circleMarker(city.location,{
+		radius:city.population/100000
+	})
+	.bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
+  .addTo(map);
+});
+*/
 /*
 Let’s break down what's happening in this code block:
 

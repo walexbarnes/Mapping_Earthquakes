@@ -6,14 +6,21 @@ We’re assigning the variable map to the JavaScript class “L,” an acronym f
 The mapid will reference the id tag in our <div> element on the index.html file.
 The setView() method sets the view of the map with a geographical center, where the first coordinate is latitude (40.7) and the second is longitude (-94.5). We set the zoom level of “4” on a scale 0–18.
 */
-let map = L.map('mapid').setView([40.7, -94.5], 4);
+let map = L.map('mapid').setView([37.6213, -122.3790], 5);
 
 
+// Loop through the cities array and create one marker for each city.
 // Coordinates for each point to be used in the line.
 let line = [
 	[33.9416, -118.4085],
-	[37.6213, -122.3790]
+	[37.6213, -122.3790],
+	[40.7899, -111.9791],
+	[47.4502, -122.3088]
   ];
+// Create a polyline using the line coordinates and make the line black.
+L.polyline(line, {
+	color: "yellow"
+ }).addTo(map);
 /*
 Let’s break down what's happening in this code block:
 
