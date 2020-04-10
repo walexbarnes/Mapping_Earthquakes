@@ -9,11 +9,15 @@ The setView() method sets the view of the map with a geographical center, where 
 let map = L.map('mapid').setView([40.7, -94.5], 4);
 
 
-// Coordinates for each point to be used in the line.
-let line = [
-	[33.9416, -118.4085],
-	[37.6213, -122.3790]
-  ];
+// Loop through the cities array and create one marker for each city.
+cityData.forEach(function(city) {
+	console.log(city)
+	L.circleMarker(city.location,{
+		radius:city.population/100000
+	})
+	.bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
+  .addTo(map);
+});
 /*
 Let’s break down what's happening in this code block:
 
